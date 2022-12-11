@@ -1,3 +1,5 @@
+package com.archiewhite;
+
 import javax.swing.JFrame;
 
 public class Main {
