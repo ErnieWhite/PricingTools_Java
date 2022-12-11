@@ -50,9 +50,7 @@ public class FormulaConverterFrame extends JFrame {
         grossProfitCopyButton = new JButton("Copy");
 
         addComponentsToFrame();
-
         this.pack();
-
     }
 
     public void addComponentsToFrame() {
@@ -114,8 +112,5 @@ public class FormulaConverterFrame extends JFrame {
         this.add(grossProfitTextField, c);
         c.gridx = 2;
         this.add(grossProfitCopyButton, c);
-
     }
-
-
 }
