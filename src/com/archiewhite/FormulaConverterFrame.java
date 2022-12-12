@@ -50,7 +50,13 @@ public class FormulaConverterFrame extends JFrame {
         grossProfitCopyButton = new JButton("Copy");
 
         addComponentsToFrame();
+        setUpFieldValidators();
+
         this.pack();
+    }
+
+    public void setUpFieldValidators() {
+        formulaTextField.setInputVerifier(new FormulaVerifier());
     }
 
     public void addComponentsToFrame() {

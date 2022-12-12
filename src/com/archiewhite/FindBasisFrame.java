@@ -36,11 +36,11 @@ public class FindBasisFrame extends JFrame {
         copyButton = new JButton("Copy");
 
         addComponentsToFrame();
-        setUpTextFieldVerifiers();
+        setUpFieldVerifiers();
         this.pack();
     }
 
-    public void setUpTextFieldVerifiers() {
+    public void setUpFieldVerifiers() {
         unitPriceTextField.setInputVerifier(new NumberVerifier());
         formulaTextField.setInputVerifier(new FormulaVerifier());
     }
