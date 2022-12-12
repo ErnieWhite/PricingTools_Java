@@ -3,7 +3,7 @@ package com.archiewhite;
 import javax.swing.*;
 import java.awt.*;
 
-public class FormulaConverterFrame extends JFrame {
+public class FormulaConverterFrame extends JPanel {
     JLabel formulaLabel;
     JLabel decimalsLabel;
     JLabel multiplierLabel;
@@ -25,8 +25,6 @@ public class FormulaConverterFrame extends JFrame {
     JButton grossProfitCopyButton;
 
     FormulaConverterFrame() {
-        this.setTitle("Formula Converter");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         formulaLabel = new JLabel("Formula");
         multiplierLabel = new JLabel("Multiplier");
@@ -52,7 +50,6 @@ public class FormulaConverterFrame extends JFrame {
         addComponentsToFrame();
         setUpFieldValidators();
 
-        this.pack();
     }
 
     public void setUpFieldValidators() {

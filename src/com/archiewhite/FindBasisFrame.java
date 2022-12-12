@@ -3,7 +3,7 @@ package com.archiewhite;
 import javax.swing.*;
 import java.awt.*;
 
-public class FindBasisFrame extends JFrame {
+public class FindBasisFrame extends JPanel {
     JLabel unitPriceLabel;
     JLabel formulaLabel;
     JLabel decimalsLabel;
@@ -18,8 +18,6 @@ public class FindBasisFrame extends JFrame {
     JButton copyButton;
 
     FindBasisFrame() {
-        this.setTitle("Find Basis Value");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         unitPriceLabel = new JLabel("Unit Price");
         formulaLabel = new JLabel("Formula");
@@ -37,7 +35,6 @@ public class FindBasisFrame extends JFrame {
 
         addComponentsToFrame();
         setUpFieldVerifiers();
-        this.pack();
     }
 
     public void setUpFieldVerifiers() {

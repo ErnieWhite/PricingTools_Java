@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class FindFormulasFrame extends JFrame {
+public class FindFormulasFrame extends JPanel {
     JLabel unitPriceLabel;
     JLabel basisValueLabel;
     JLabel decimalsLabel;
@@ -25,7 +25,6 @@ public class FindFormulasFrame extends JFrame {
 
 
     FindFormulasFrame() {
-        this.setTitle("Find Formulas");
         this.unitPriceLabel = new JLabel("Unit Price");
         this.basisValueLabel = new JLabel("Basis Value");
         this.decimalsLabel = new JLabel("Decimals");
@@ -47,7 +46,6 @@ public class FindFormulasFrame extends JFrame {
 
         addComponentsToFrame();
         setUpFieldValidators();
-        this.pack();
 
     }
 
