@@ -77,6 +77,8 @@ public class MainFrame extends JFrame implements ActionListener {
         if (e.getSource() == exitMenuItem) {
             System.exit(0);
         }
+        //TODO: Fix this.  It sizes the window to the width of the widest card and height to the tallest card
+        //                 not just the current card.
         this.pack();
     }
 }
