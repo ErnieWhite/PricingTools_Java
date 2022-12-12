@@ -46,8 +46,14 @@ public class FindFormulasFrame extends JFrame {
         grossProfitFormulaCopyButton = new JButton("Copy");
 
         addComponentsToFrame();
+        setUpFieldValidators();
         this.pack();
 
+    }
+
+    public void setUpFieldValidators() {
+        unitPriceTextField.setInputVerifier(new NumberVerifier());
+        basisValueTextField.setInputVerifier(new NumberVerifier());
     }
 
     public void addComponentsToFrame() {
