@@ -25,7 +25,7 @@ public class FindBasisFrame extends JPanel {
         basisValueLabel = new JLabel("Basis Value");
 
         unitPriceTextField = new JTextField(10);
-        formulaTextField = new JTextField(10);
+        formulaTextField = new FormulaTextField(10);
         basisValueTextField = new JTextField(10);
 
         String[] comboBoxItems = {"Auto", "0", "1", "2", "3", "4", "5", "6"};

@@ -10,11 +10,11 @@ public class MainFrame extends JFrame implements ActionListener {
     JMenu fileMenu, viewMenu;
     JMenuItem findBasisMenuItem, findFormulaMenuItem, formulaConverterMenuItem, exitMenuItem;
 
-    Container cardPane;
-    CardLayout cardLayout;
+    Container contentPane;
     FindFormulasFrame cardFindFormulas;
     FindBasisFrame cardFindBasisValue;
     FormulaConverterFrame cardFormulaConverter;
+    JPanel currentFrame;
     
     final static String FINDFORMULAS = "Find Formulas";
     final static String FORMULACONVERTER = "Convert Formulas";
@@ -31,9 +31,9 @@ public class MainFrame extends JFrame implements ActionListener {
         exitMenuItem.addActionListener(this);
 
         viewMenu = new JMenu("View");
-        findBasisMenuItem = new JMenuItem("Find Basis Value");
-        findFormulaMenuItem = new JMenuItem("Find Formula");
-        formulaConverterMenuItem = new JMenuItem("Formula Converter");
+        findBasisMenuItem = new JMenuItem(FINDBASISVALUE);
+        findFormulaMenuItem = new JMenuItem(FINDFORMULAS);
+        formulaConverterMenuItem = new JMenuItem(FORMULACONVERTER);
 
         findBasisMenuItem.addActionListener(this);
         findFormulaMenuItem.addActionListener(this);
@@ -48,37 +48,40 @@ public class MainFrame extends JFrame implements ActionListener {
 
         this.setJMenuBar(menuBar);
 
-        cardLayout = new CardLayout();
 
-        cardPane = this.getContentPane();
-        cardPane.setLayout(cardLayout);
+        contentPane = this.getContentPane();
 
         cardFindFormulas = new FindFormulasFrame();
         cardFindBasisValue = new FindBasisFrame();
         cardFormulaConverter = new FormulaConverterFrame();
 
-        cardPane.add(FINDFORMULAS, cardFindFormulas);
-        cardPane.add(FINDBASISVALUE, cardFindBasisValue);
-        cardPane.add(FORMULACONVERTER, cardFormulaConverter);
+        this.add(cardFormulaConverter);
+        currentFrame = cardFormulaConverter;
         this.pack();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == findBasisMenuItem) {
-            cardLayout.show(cardPane, FINDBASISVALUE);
+            swapInPanel(cardFindBasisValue);
         }
         if (e.getSource() == findFormulaMenuItem) {
-            cardLayout.show(cardPane, FINDFORMULAS);
+            swapInPanel(cardFindFormulas);
         }
         if (e.getSource() == formulaConverterMenuItem) {
-            cardLayout.show(cardPane, FORMULACONVERTER);
+            swapInPanel(cardFormulaConverter);
         }
         if (e.getSource() == exitMenuItem) {
             System.exit(0);
         }
         //TODO: Fix this.  It sizes the window to the width of the widest card and height to the tallest card
         //                 not just the current card.
+        this.pack();
+    }
+    public void swapInPanel(JPanel frame) {
+        this.remove(currentFrame);
+        this.add(frame);
+        this.currentFrame = frame;
         this.pack();
     }
 }

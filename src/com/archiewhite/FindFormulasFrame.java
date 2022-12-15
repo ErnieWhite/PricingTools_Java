@@ -46,6 +46,11 @@ public class FindFormulasFrame extends JPanel {
 
         addComponentsToFrame();
         setUpFieldValidators();
+        addDocumentListeners();
+
+    }
+
+    public void addDocumentListeners() {
 
     }
 
