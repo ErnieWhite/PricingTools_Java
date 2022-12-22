@@ -27,3 +27,10 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_15_2022_10_17_AM_[Changes]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_15_2022_10_17_AM__Changes_.xml
+/.idea/uiDesigner.xml
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_15_2022_10_17_AM_[Changes]/shelved.patch
+this.add(grossProfitLabel, c);
+c.gridx = 4;
+*.iml
