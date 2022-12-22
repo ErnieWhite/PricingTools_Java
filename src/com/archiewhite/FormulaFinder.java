@@ -1,13 +1,13 @@
 package com.archiewhite;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 
-public class FindFormulasFrame extends JPanel {
-    JLabel unitPriceLabel;
-    JLabel basisValueLabel;
-    JLabel decimalsLabel;
+public class FormulaFinder extends JPanel {
+    JLabel unitPriceLabel, basisValueLabel, decimalsLabel;
+    JLabel multiplierLabel, discountLabel, markupLabel, grossProfitLabel;
 
     JTextField unitPriceTextField;
     JTextField basisValueTextField;
@@ -24,25 +24,37 @@ public class FindFormulasFrame extends JPanel {
     JButton grossProfitFormulaCopyButton;
 
 
-    FindFormulasFrame() {
+    FormulaFinder() {
+        this.setName("Formula Finder");
         this.unitPriceLabel = new JLabel("Unit Price");
         this.basisValueLabel = new JLabel("Basis Value");
         this.decimalsLabel = new JLabel("Decimals");
 
-        this.unitPriceTextField = new JTextField();
-        this.basisValueTextField = new JTextField();
+        this.multiplierLabel = new JLabel("Multiplier");
+        this.discountLabel = new JLabel("Discount");
+        this.markupLabel = new JLabel("Markup");
+        this.grossProfitLabel = new JLabel("Gross Profit");
+
+        this.unitPriceTextField = new JTextField(10);
+        this.basisValueTextField = new JTextField(10);
         String[] comboBoxItems = {"Auto", "0", "1", "2", "3", "4", "5", "6"};
         this.decimalsComboBox = new JComboBox<>(comboBoxItems);
+        decimalsComboBox.setSize(20,10);
 
-        multiplierFormulaTextField = new JTextField(8);
-        discountFormulaTextField = new JTextField(8);
-        markupFormulaTextField = new JTextField(8);
-        grossProfitFormulaTextField = new JTextField(8);
+        multiplierFormulaTextField = new JTextField(10);
+        discountFormulaTextField = new JTextField(10);
+        markupFormulaTextField = new JTextField(10);
+        grossProfitFormulaTextField = new JTextField(10);
 
         multiplierFormulaCopyButton = new JButton("Copy");
         discountFormulaCopyButton = new JButton("Copy");
         markupFormulaCopyButton = new JButton("Copy");
         grossProfitFormulaCopyButton = new JButton("Copy");
+
+        multiplierFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
+        discountFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
+        markupFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
+        grossProfitFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
 
         addComponentsToFrame();
         setUpFieldValidators();
@@ -65,14 +77,17 @@ public class FindFormulasFrame extends JPanel {
 
         // add in the first row of controls
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(2, 2, 2, 2);
         c.gridx = 0;
         c.gridy = 0;
         this.add(unitPriceLabel, c);
         c.gridx = 1;
         this.add(unitPriceTextField, c);
-        c.gridx = 2;
-        this.add(multiplierFormulaTextField, c);
         c.gridx = 3;
+        this.add(multiplierLabel, c);
+        c.gridx = 4;
+        this.add(multiplierFormulaTextField, c);
+        c.gridx = 5;
         this.add(multiplierFormulaCopyButton, c);
 
         // add in the second row of controls
@@ -81,9 +96,11 @@ public class FindFormulasFrame extends JPanel {
         this.add(basisValueLabel, c);
         c.gridx = 1;
         this.add(basisValueTextField, c);
-        c.gridx = 2;
-        this.add(discountFormulaTextField, c);
         c.gridx = 3;
+        this.add(discountLabel, c);
+        c.gridx = 4;
+        this.add(discountFormulaTextField, c);
+        c.gridx = 5;
         this.add(discountFormulaCopyButton, c);
 
         // add in the third row of controls
@@ -92,17 +109,30 @@ public class FindFormulasFrame extends JPanel {
         this.add(decimalsLabel, c);
         c.gridx = 1;
         this.add(decimalsComboBox, c);
-        c.gridx = 2;
-        this.add(markupFormulaTextField, c);
         c.gridx = 3;
+        this.add(markupLabel, c);
+        c.gridx = 4;
+        this.add(markupFormulaTextField, c);
+        c.gridx = 5;
         this.add(markupFormulaCopyButton, c);
 
         // add in the fourth row of controls
-        c.gridx = 2;
-        c.gridy = 3;
-        this.add(grossProfitFormulaTextField, c);
         c.gridx = 3;
+        c.gridy = 3;
+        this.add(grossProfitLabel, c);
+        c.gridx = 4;
+        this.add(grossProfitFormulaTextField, c);
+        c.gridx = 5;
         this.add(grossProfitFormulaCopyButton, c);
+
+        // add the separator
+        c.gridx = 2;
+        c.gridy = 0;
+        c.gridheight = 4;
+        c.fill = GridBagConstraints.VERTICAL;
+        this.add(new JSeparator(SwingConstants.VERTICAL), c);
+
+        this.setBorder(new EmptyBorder(10, 10, 10, 10));
 
     }
 

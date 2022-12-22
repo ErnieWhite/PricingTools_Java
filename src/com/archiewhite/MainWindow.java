@@ -5,22 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainFrame extends JFrame implements ActionListener {
+public class MainWindow extends JFrame implements ActionListener {
     JMenuBar menuBar;
     JMenu fileMenu, viewMenu;
     JMenuItem findBasisMenuItem, findFormulaMenuItem, formulaConverterMenuItem, exitMenuItem;
 
     Container contentPane;
-    FindFormulasFrame cardFindFormulas;
-    FindBasisFrame cardFindBasisValue;
-    FormulaConverterFrame cardFormulaConverter;
-    JPanel currentFrame;
+    FormulaFinder cardFindFormulas;
+    BasisFinder cardFindBasisValue;
+    FormulaConverter cardFormulaConverter;
+    JPanel currentPanel;
     
     final static String FINDFORMULAS = "Find Formulas";
     final static String FORMULACONVERTER = "Convert Formulas";
     final static String FINDBASISVALUE = "Find Basis Value";
 
-    MainFrame() {
+    MainWindow() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         menuBar = new JMenuBar();
@@ -50,13 +50,15 @@ public class MainFrame extends JFrame implements ActionListener {
 
 
         contentPane = this.getContentPane();
+        contentPane.setLayout(new BorderLayout(10, 10));
 
-        cardFindFormulas = new FindFormulasFrame();
-        cardFindBasisValue = new FindBasisFrame();
-        cardFormulaConverter = new FormulaConverterFrame();
+        cardFindFormulas = new FormulaFinder();
+        cardFindBasisValue = new BasisFinder();
+        cardFormulaConverter = new FormulaConverter();
 
-        this.add(cardFormulaConverter);
-        currentFrame = cardFormulaConverter;
+        contentPane.add(cardFormulaConverter);
+        currentPanel = cardFormulaConverter;
+        this.setTitle(currentPanel.getName());
         this.pack();
     }
 
@@ -74,14 +76,13 @@ public class MainFrame extends JFrame implements ActionListener {
         if (e.getSource() == exitMenuItem) {
             System.exit(0);
         }
-        //TODO: Fix this.  It sizes the window to the width of the widest card and height to the tallest card
-        //                 not just the current card.
         this.pack();
     }
-    public void swapInPanel(JPanel frame) {
-        this.remove(currentFrame);
-        this.add(frame);
-        this.currentFrame = frame;
+    public void swapInPanel(JPanel panel) {
+        contentPane.remove(currentPanel);
+        contentPane.add(panel);
+        this.currentPanel = panel;
+        this.setTitle(panel.getName());
         this.pack();
     }
 }

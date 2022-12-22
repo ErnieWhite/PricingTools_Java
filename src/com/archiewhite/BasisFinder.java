@@ -1,9 +1,10 @@
 package com.archiewhite;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class FindBasisFrame extends JPanel {
+public class BasisFinder extends JPanel {
     JLabel unitPriceLabel;
     JLabel formulaLabel;
     JLabel decimalsLabel;
@@ -17,7 +18,10 @@ public class FindBasisFrame extends JPanel {
 
     JButton copyButton;
 
-    FindBasisFrame() {
+
+    BasisFinder() {
+
+        this.setName("Basis Finder");
 
         unitPriceLabel = new JLabel("Unit Price");
         formulaLabel = new JLabel("Formula");
@@ -32,6 +36,7 @@ public class FindBasisFrame extends JPanel {
         decimalsCombobox = new JComboBox<>(comboBoxItems);
 
         copyButton = new JButton("Copy");
+        copyButton.setMargin(new Insets(0, 2, 0, 2));
 
         addComponentsToFrame();
         setUpFieldVerifiers();
@@ -47,12 +52,17 @@ public class FindBasisFrame extends JPanel {
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(2, 2, 2, 2);
 
         c.gridx = 0;
         c.gridy = 0;
         this.add(unitPriceLabel, c);
         c.gridx = 1;
         this.add(unitPriceTextField, c);
+        c.gridx = 3;
+        this.add(basisValueLabel, c);
+        c.gridx = 4;
+        this.add(basisValueTextField, c);
 
         c.gridx = 0;
         c.gridy = 1;
@@ -66,14 +76,18 @@ public class FindBasisFrame extends JPanel {
         c.gridx = 1;
         this.add(decimalsCombobox, c);
 
-        c.gridx = 0;
-        c.gridy = 3;
-        this.add(basisValueLabel, c);
-        c.gridx = 1;
-        this.add(basisValueTextField, c);
 
-        c.gridy = 4;
+        c.gridy = 0;
+        c.gridx = 5;
         this.add(copyButton, c);
+        this.setBorder(new EmptyBorder(10,10,10,10));
+
+        // add the separator
+        c.gridx = 2;
+        c.gridy = 0;
+        c.gridheight = 3;
+        c.fill = GridBagConstraints.VERTICAL;
+        this.add(new JSeparator(SwingConstants.VERTICAL), c);
 
     }
 }
