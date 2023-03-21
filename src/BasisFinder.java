@@ -3,11 +3,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class BasisFinder extends JPanel {
-    JLabel unitPriceLabel;
-    JLabel formulaLabel;
-    JLabel decimalsLabel;
-    JLabel basisValueLabel;
-
     JTextField unitPriceTextField;
     JTextField formulaTextField;
     JTextField basisValueTextField;
@@ -20,11 +15,6 @@ public class BasisFinder extends JPanel {
     BasisFinder() {
 
         this.setName("Basis Finder");
-
-        unitPriceLabel = new JLabel("Unit Price");
-        formulaLabel = new JLabel("Formula");
-        decimalsLabel = new JLabel("Decimals");
-        basisValueLabel = new JLabel("Basis Value");
 
         unitPriceTextField = new JTextField(10);
         formulaTextField = new FormulaTextField(10);
@@ -54,23 +44,23 @@ public class BasisFinder extends JPanel {
 
         c.gridx = 0;
         c.gridy = 0;
-        this.add(unitPriceLabel, c);
+        this.add(new JLabel("Unit Price"), c);
         c.gridx = 1;
         this.add(unitPriceTextField, c);
         c.gridx = 3;
-        this.add(basisValueLabel, c);
+        this.add(new JLabel("Basis Value"), c);
         c.gridx = 4;
         this.add(basisValueTextField, c);
 
         c.gridx = 0;
         c.gridy = 1;
-        this.add(formulaLabel, c);
+        this.add(new JLabel("Formula"), c);
         c.gridx = 1;
         this.add(formulaTextField, c);
 
         c.gridx = 0;
         c.gridy = 2;
-        this.add(decimalsLabel, c);
+        this.add(new JLabel("Decimals"), c);
         c.gridx = 1;
         this.add(decimalsCombobox, c);
 

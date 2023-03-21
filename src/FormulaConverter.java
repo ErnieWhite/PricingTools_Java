@@ -3,21 +3,19 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class FormulaConverter extends JPanel {
-    JLabel formulaLabel, decimalsLabel;
-    JLabel multiplierLabel, discountLabel, markupLabel, grossProfitLabel;
-    JTextField formulaTextField, multiplierTextField, discountTextField, markupTextField, grossProfitTextField;
+    JTextField formulaTextField;
+    JTextField multiplierTextField;
+    JTextField discountTextField;
+    JTextField markupTextField;
+    JTextField grossProfitTextField;
     JComboBox<String> decimalsComboBox;
-    JButton multiplierCopyButton, discountCopyButton, markupCopyButton, grossProfitCopyButton;
+    JButton multiplierCopyButton;
+    JButton discountCopyButton;
+    JButton markupCopyButton;
+    JButton grossProfitCopyButton;
 
     FormulaConverter() {
         this.setName("Formula Converter");
-        formulaLabel = new JLabel("Formula");
-        decimalsLabel = new JLabel("Decimals");
-
-        multiplierLabel = new JLabel("Multiplier");
-        discountLabel = new JLabel("Discount");
-        markupLabel = new JLabel("Markup");
-        grossProfitLabel = new JLabel("Gross Profit");
 
         formulaTextField = new JTextField(10);
         multiplierTextField = new JTextField(10);
@@ -56,11 +54,11 @@ public class FormulaConverter extends JPanel {
 
         c.gridy = 0;
         c.gridx = 0;
-        this.add(formulaLabel, c);
+        this.add(new JLabel("Formula"), c);
         c.gridx = 1;
         this.add(formulaTextField, c);
         c.gridx = 3;
-        this.add(multiplierLabel, c);
+        this.add(new JLabel("Multiplier"), c);
         c.gridx = 4;
         this.add(multiplierTextField, c);
         c.gridx = 5;
@@ -69,11 +67,11 @@ public class FormulaConverter extends JPanel {
         // add the decimals row
         c.gridy = 1;
         c.gridx = 0;
-        this.add(decimalsLabel, c);
+        this.add(new JLabel("Decimals"), c);
         c.gridx = 1;
         this.add(decimalsComboBox, c);
         c.gridx = 3;
-        this.add(discountLabel, c);
+        this.add(new JLabel("Discount"), c);
         c.gridx = 4;
         this.add(discountTextField, c);
         c.gridx = 5;
@@ -91,7 +89,7 @@ public class FormulaConverter extends JPanel {
         c.gridheight = 1;
         c.gridy = 2;
         c.gridx = 3;
-        this.add(markupLabel, c);
+        this.add(new JLabel("Markup"), c);
         c.gridx = 4;
         this.add(markupTextField, c);
         c.gridx = 5;
@@ -100,7 +98,7 @@ public class FormulaConverter extends JPanel {
         // add the gross profit row
         c.gridy = 3;
         c.gridx = 3;
-        this.add(grossProfitLabel, c);
+        this.add(new JLabel("Gross Profit"), c);
         c.gridx = 4;
         this.add(grossProfitTextField, c);
         c.gridx = 5;

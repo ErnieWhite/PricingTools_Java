@@ -4,9 +4,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class FormulaFinder extends JPanel {
-    JLabel unitPriceLabel, basisValueLabel, decimalsLabel;
-    JLabel multiplierLabel, discountLabel, markupLabel, grossProfitLabel;
-
     JTextField unitPriceTextField;
     JTextField basisValueTextField;
     JComboBox<String> decimalsComboBox;
@@ -24,14 +21,6 @@ public class FormulaFinder extends JPanel {
 
     FormulaFinder() {
         this.setName("Formula Finder");
-        this.unitPriceLabel = new JLabel("Unit Price");
-        this.basisValueLabel = new JLabel("Basis Value");
-        this.decimalsLabel = new JLabel("Decimals");
-
-        this.multiplierLabel = new JLabel("Multiplier");
-        this.discountLabel = new JLabel("Discount");
-        this.markupLabel = new JLabel("Markup");
-        this.grossProfitLabel = new JLabel("Gross Profit");
 
         this.unitPriceTextField = new JTextField(10);
         this.basisValueTextField = new JTextField(10);
@@ -78,11 +67,11 @@ public class FormulaFinder extends JPanel {
         c.insets = new Insets(2, 2, 2, 2);
         c.gridx = 0;
         c.gridy = 0;
-        this.add(unitPriceLabel, c);
+        this.add(new JLabel("Unit Price"), c);
         c.gridx = 1;
         this.add(unitPriceTextField, c);
         c.gridx = 3;
-        this.add(multiplierLabel, c);
+        this.add(new JLabel("Multiplier"), c);
         c.gridx = 4;
         this.add(multiplierFormulaTextField, c);
         c.gridx = 5;
@@ -91,11 +80,11 @@ public class FormulaFinder extends JPanel {
         // add in the second row of controls
         c.gridx = 0;
         c.gridy = 1;
-        this.add(basisValueLabel, c);
+        this.add(new JLabel("Basis Value"), c);
         c.gridx = 1;
         this.add(basisValueTextField, c);
         c.gridx = 3;
-        this.add(discountLabel, c);
+        this.add(new JLabel("Discount"), c);
         c.gridx = 4;
         this.add(discountFormulaTextField, c);
         c.gridx = 5;
@@ -104,11 +93,11 @@ public class FormulaFinder extends JPanel {
         // add in the third row of controls
         c.gridx = 0;
         c.gridy = 2;
-        this.add(decimalsLabel, c);
+        this.add(new JLabel("Decimals"), c);
         c.gridx = 1;
         this.add(decimalsComboBox, c);
         c.gridx = 3;
-        this.add(markupLabel, c);
+        this.add(new JLabel("Markup"), c);
         c.gridx = 4;
         this.add(markupFormulaTextField, c);
         c.gridx = 5;
@@ -117,7 +106,7 @@ public class FormulaFinder extends JPanel {
         // add in the fourth row of controls
         c.gridx = 3;
         c.gridy = 3;
-        this.add(grossProfitLabel, c);
+        this.add(new JLabel("Gross Profit"), c);
         c.gridx = 4;
         this.add(grossProfitFormulaTextField, c);
         c.gridx = 5;
