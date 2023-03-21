@@ -30,10 +30,11 @@ public class FormulaConverter extends JPanel {
         discountCopyButton = new JButton("Copy");
         markupCopyButton = new JButton("Copy");
         grossProfitCopyButton = new JButton("Copy");
-        multiplierCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        discountCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        markupCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        grossProfitCopyButton.setMargin(new Insets(0, 2, 0, 2));
+        Insets insets = new Insets(0, 2, 0, 2);
+        multiplierCopyButton.setMargin(insets);
+        discountCopyButton.setMargin(insets);
+        markupCopyButton.setMargin(insets);
+        grossProfitCopyButton.setMargin(insets);
 
         addComponentsToFrame();
         setUpFieldValidators();

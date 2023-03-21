@@ -38,10 +38,11 @@ public class FormulaFinder extends JPanel {
         markupFormulaCopyButton = new JButton("Copy");
         grossProfitFormulaCopyButton = new JButton("Copy");
 
-        multiplierFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        discountFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        markupFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
-        grossProfitFormulaCopyButton.setMargin(new Insets(0, 2, 0, 2));
+        Insets insets = new Insets(0, 2, 0, 2);
+        multiplierFormulaCopyButton.setMargin(insets);
+        discountFormulaCopyButton.setMargin(insets);
+        markupFormulaCopyButton.setMargin(insets);
+        grossProfitFormulaCopyButton.setMargin(insets);
 
         addComponentsToFrame();
         setUpFieldValidators();
